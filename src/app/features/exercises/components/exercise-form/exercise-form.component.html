@@ -1,14 +1,16 @@
-<form (submit)="addExercise()">
+<form [formGroup]="exerciseForm" (ngSubmit)="addExercise()">
   <div class="form-group">
     <label for="name">Exercise Name</label>
     <input
       id="name"
       type="text"
-      [(ngModel)]="name"
-      name="name"
+      formControlName="name"
       placeholder="e.g., Push Ups"
       required
     />
+    @if (exerciseForm.get('name')?.invalid && exerciseForm.get('name')?.touched) {
+      <small class="error">Exercise name is required.</small>
+    }
   </div>
 
   <div class="form-group">
@@ -16,14 +18,16 @@
     <input
       id="duration"
       type="number"
-      [(ngModel)]="duration"
-      name="duration"
+      formControlName="duration"
       placeholder="e.g., 10"
       min="1"
       required
     />
+    @if (exerciseForm.get('duration')?.invalid && exerciseForm.get('duration')?.touched) {
+      <small class="error">Duration must be at least 1 minute.</small>
+    }
   </div>
 
-  <button class="button-primary" type="submit" [disabled]="!name || duration <= 0">Add Exercise</button>
+  <button class="button-primary" type="submit" [disabled]="exerciseForm.invalid">Add Exercise</button>
   <button class="button-clear" type="button" (click)="resetForm()">Reset</button>
 </form>
