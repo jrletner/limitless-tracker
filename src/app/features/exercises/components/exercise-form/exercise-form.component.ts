@@ -22,7 +22,7 @@ export class ExerciseFormComponent {
   constructor() {
     this.exerciseForm = this.fb.group({
       name: ['', [Validators.required]],
-      duration: [0, [Validators.required, Validators.min(1)]],
+      duration: [1, [Validators.required, Validators.min(1)]],
     });
   }
 
@@ -37,7 +37,7 @@ export class ExerciseFormComponent {
   resetForm() {
     this.exerciseForm.reset({
       name: '',
-      duration: 0,
+      duration: 1,
     });
   }
 }
