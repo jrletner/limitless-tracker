@@ -1,20 +1,7 @@
-<div class="exercise-list">
-  <h2>Exercise List</h2>
+
 @for (exercise of exercises(); track exercise.name) {
-  <div class="exercise-item">
-    <span>{{ exercise.name }} - {{ exercise.duration}} mins</span>
-    <button class="button-danger" (click)="removeExercise(exercise.name)">Delete</button>
-  </div>
+  <app-exercise-item [exercise]="exercise"></app-exercise-item>
 } @empty {
   <p>No Exercises added yet!</p>
 }
-
-
-
-
-
-
-
 <app-exercise-form></app-exercise-form>
-
-</div>
