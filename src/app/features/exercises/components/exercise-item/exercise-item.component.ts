@@ -9,11 +9,12 @@ import { Exercise } from '../../../../shared/services/exercise-item.model';
   styleUrl: './exercise-item.component.css',
 })
 export class ExerciseItemComponent {
- exercise = input<Exercise>()
- 
+ exercise = input<Exercise>();
+
   private exerciseService = inject(ExerciseService);
 
   removeExercise() {
-    this.exerciseService.removeExercise(this.exercise.name);
-  }
+    this.exerciseService.removeExercise(this.exercise().name);
+}
+
 }
