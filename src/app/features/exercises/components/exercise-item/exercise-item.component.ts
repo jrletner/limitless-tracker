@@ -1,5 +1,6 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input } from '@angular/core';
 import { ExerciseService } from '../../../../shared/services/exercise.service';
+import { Exercise } from '../../../../shared/services/exercise-item.model';
 
 @Component({
   selector: 'app-exercise-item',
@@ -8,10 +9,12 @@ import { ExerciseService } from '../../../../shared/services/exercise.service';
   styleUrl: './exercise-item.component.css',
 })
 export class ExerciseItemComponent {
-  @Input() exercise: { name: string; duration: number };
+ exercise = input<Exercise>();
+
   private exerciseService = inject(ExerciseService);
 
   removeExercise() {
-    this.exerciseService.removeExercise(this.exercise.name);
-  }
+    this.exerciseService.removeExercise(this.exercise().name);
+}
+
 }

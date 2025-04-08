@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, ViewChild, } from '@angular/core';
 import { ExerciseService } from '../../../../shared/services/exercise.service';
 import { FormsModule} from '@angular/forms';
 @Component({
@@ -10,16 +10,27 @@ import { FormsModule} from '@angular/forms';
 export class ExerciseFormComponent {
   private exerciseService = inject(ExerciseService);
 
-  name: string = '';
-  duration: number = 0;
+  // name: string = '';
+  // duration: number = 0;
 
-  addExercise() {
-    this.exerciseService.addExercise(this.name, this.duration);
-    this.resetForm();
+    // TODO: use ViewChild to bring in #form as a signal
+    // private form = viewChild.required<ElementRef<HTMLFormElement>>('form')
+    @ViewChild('form') form?: ElementRef<HTMLFormElement>
+
+ // TODO: use AfterViewInit
+ ngAfterViewInit() {
+  // adding an event listener to the form (if needed)
+  this.form.nativeElement.addEventListener('submit', (event) => {
+  });
+
+}
+
+  addExercise(name: string, duration: number) {
+    this.exerciseService.addExercise(name, duration);
+    this.form?.nativeElement.reset();
   }
 
   resetForm() {
-    this.name = '';
-    this.duration = 0;
+    this.form?.nativeElement.reset();
   }
 }

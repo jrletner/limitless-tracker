@@ -1,10 +1,10 @@
-<form (submit)="addExercise()">
+<form #form (submit)="addExercise(name.value, duration.value); $event.preventDefault()">
   <div class="form-group">
     <label for="name">Exercise Name</label>
     <input
       id="name"
       type="text"
-      [(ngModel)]="name"
+      #name
       name="name"
       placeholder="e.g., Push Ups"
       required
@@ -16,7 +16,7 @@
     <input
       id="duration"
       type="number"
-      [(ngModel)]="duration"
+      #duration
       name="duration"
       placeholder="e.g., 10"
       min="1"
