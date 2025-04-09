@@ -7,13 +7,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    DashboardPageComponent,
-    ExerciseListComponent,
-    ExerciseStopWatchComponent,
-    NavbarComponent,
-    RouterOutlet,
-  ],
+  imports: [NavbarComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
