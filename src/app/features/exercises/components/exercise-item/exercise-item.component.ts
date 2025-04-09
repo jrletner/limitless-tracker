@@ -1,4 +1,10 @@
-import { Component, inject, input, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  Input,
+} from '@angular/core';
 import { ExerciseService } from '../../../../shared/services/exercise.service';
 import { Exercise } from '../../../../shared/services/exercise-item.model';
 
@@ -7,6 +13,7 @@ import { Exercise } from '../../../../shared/services/exercise-item.model';
   imports: [],
   templateUrl: './exercise-item.component.html',
   styleUrl: './exercise-item.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExerciseItemComponent {
   get debugOutput() {

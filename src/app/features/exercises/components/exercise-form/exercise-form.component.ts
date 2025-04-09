@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   inject,
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   templateUrl: './exercise-form.component.html',
   styleUrl: './exercise-form.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExerciseFormComponent implements AfterViewInit {
   private exerciseService = inject(ExerciseService);
