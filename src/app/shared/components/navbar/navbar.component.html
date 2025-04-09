@@ -1,0 +1,21 @@
+<nav>
+    <a
+        *ngIf="isAuth"
+        routerLink="/dashboard"
+    >
+        Dashboard
+    </a>
+    <a
+        *ngIf="!isAuth"
+        routerLink="/login"
+    >
+        Login
+    </a>
+    <button
+        *ngIf="isAuth"
+        (click)="logout()"
+    >
+        Logout
+    </button>
+
+</nav>
