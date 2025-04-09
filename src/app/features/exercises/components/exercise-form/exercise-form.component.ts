@@ -16,6 +16,10 @@ import { FormsModule } from '@angular/forms';
 export class ExerciseFormComponent implements AfterViewInit {
   private exerciseService = inject(ExerciseService);
 
+  get debugOutput() {
+    console.log('[ExerciseFormComponent] "debugOutput" binding');
+    return 'InfoMessage Component DebugOutput';
+  }
   // name: string = '';
   // duration: number = 0;
 

@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  get debugOutput() {
+    console.log('[LoginComponent] "debugOutput" binding');
+    return 'InfoMessage Component Debug Output';
+  }
   username = '';
   password = '';
   isAuth = false;

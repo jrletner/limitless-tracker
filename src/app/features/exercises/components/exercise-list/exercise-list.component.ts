@@ -10,6 +10,11 @@ import { ExerciseItemComponent } from '../exercise-item/exercise-item.component'
   styleUrl: './exercise-list.component.css',
 })
 export class ExerciseListComponent {
+  get debugOutput() {
+    console.log('[ExerciseListComponent] "debugOutput" binding');
+    return 'InfoMessage Component Debug Output';
+  }
+
   private exerciseService = inject(ExerciseService);
 
   exercises = this.exerciseService.getExercises();

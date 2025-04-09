@@ -8,6 +8,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrl: './exercise-stop-watch.component.css',
 })
 export class ExerciseStopWatchComponent implements OnInit, OnDestroy {
+  get debugOutput() {
+    console.log('[StopWatchComponent] "debugOutput" binding');
+    return 'InfoMessage Component Debug Output';
+  }
   elapsedTime = 0;
   logs: { date: Date; elapsedTime: number }[] = [];
   isRunning = false;
