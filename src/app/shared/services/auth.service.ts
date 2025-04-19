@@ -2,32 +2,32 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-private isAuthenicated = new BehaviorSubject<boolean>(false);
-private username: string | null = null;
+  private isAuthenticated = new BehaviorSubject<boolean>(false);
+  private username: string | null = null;
 
-// function to login
+  // function to login
 
-login(username: string, password: string): Observable<boolean>{
-  if(username === 'user' && password === 'password')
-    this.isAuthenicated.next(true);
+  login(username: string, password: string): Observable<boolean> {
+    if (username === 'user' && password === 'password')
+      this.isAuthenticated.next(true);
     this.username = username;
-    return this.isAuthenicated.asObservable();
-}
+    return this.isAuthenticated.asObservable();
+  }
 
-// function to logout
-logout(){
-  this.isAuthenicated.next(false);
-  this.username = null;
-}
-// getAuthStatus
-getAuthStatus(): Observable<boolean>{
-  return this.isAuthenicated.asObservable();
-}
-// getUsername
-getUsername(): string | null {
-  return this.username;
-}
+  // function to logout
+  logout() {
+    this.isAuthenticated.next(false);
+    this.username = null;
+  }
+  // getAuthStatus
+  getAuthStatus(): Observable<boolean> {
+    return this.isAuthenticated.asObservable();
+  }
+  // getUsername
+  getUsername(): string | null {
+    return this.username;
+  }
 }
